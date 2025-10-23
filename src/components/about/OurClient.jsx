@@ -6,8 +6,9 @@ import { Title16, Title20, Title97 } from "../common/Title";
 
 const OurClient = () => {
   return (
-    <CommonBanner bannerImage={BannerImage}>
-      <div className="section-padding-x flex flex-col gap-12 z-50 relative max-w-[1220px]">
+    <section id="clients">
+    <CommonBanner bannerImage={BannerImage} >
+      <div className="section-padding-x flex flex-col gap-12 z-50 relative max-w-[1220px]" >
         {/* Title Animation */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -82,6 +83,8 @@ const OurClient = () => {
         </div>
       </motion.div>
     </CommonBanner>
+
+    </section>
   );
 };
 

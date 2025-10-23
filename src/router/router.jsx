@@ -9,6 +9,7 @@ import SignIn from "@/pages/AuthPages/SignIn";
 import SignUp from "@/pages/AuthPages/SignUp";
 import VerifyOtp from "@/pages/AuthPages/VerifyOtp";
 import Home from "@/pages/home/Home";
+import Map from "@/pages/Map/Map";
 
 
 import { createBrowserRouter } from "react-router-dom";
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/map",
+        element: <Map />,
       },
       {
         path: "/about-us",
