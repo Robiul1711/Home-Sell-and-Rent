@@ -1,33 +1,13 @@
 // all data
 
 import { W1Icon, W2Icon, W3Icon } from "@/components/common/CustomIcons";
-
 export const navLinks = [
-  {
-    id: 1,
-    label: "Home",
-    path: "/",
-  },
-  {
-    id: 2,
-    label: "About us",
-    path: "/about-us",
-  },
-  {
-    id: 3,
-    label: "Clients",
-    path: "/clients",
-  },
-  {
-    id: 4,
-    label: "Approach",
-    path: "/approach",
-  },
-  {
-    id: 5,
-    label: "Approach",
-    path: "/contact-us",
-  },
+  { id: 1, label: "Home", path: "/" },
+  { id: 2, label: "Map", path: "/map" },
+  { id: 3, label: "About us", path: "/about-us" },
+  { id: 4, label: "Clients", path: "/about-us", sectionId: "clients" },
+  { id: 5, label: "Approach", path: "/about-us", sectionId: "approach" },
+  { id: 6, label: "Contact us", path: "/about-us", sectionId: "contact" },
 ];
 
 export const whoweare = [

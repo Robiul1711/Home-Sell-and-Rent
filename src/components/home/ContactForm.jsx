@@ -37,82 +37,89 @@ const ContactForm = ({ className }) => {
   };
 
   return (
-    <CommonBanner bannerImage={BannerImage}>
-      <motion.div 
-        className="flex justify-end items-end section-padding-x"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="max-w-[900px] flex flex-col gap-6">
-          {/* Title Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <Title97 className="!text-white">CONTACT US</Title97>
-          </motion.div>
+<section id="contact">
+  <CommonBanner bannerImage={BannerImage}>
+    <motion.div
+      className="flex justify-end items-end section-padding-x"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <div className="max-w-[900px] w-full flex flex-col justify-center items-center h-screen gap-6
+                      sm:px-6 lg:px-0"> {/* Responsive padding */}
+        {/* Title Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <Title97 className="!text-white text-2xl sm:text-3xl md:text-4xl">CONTACT US</Title97>
+        </motion.div>
 
-          {/* Form Animation Container */}
-          <motion.form
-            onSubmit={handleSubmit(onSubmit)}
-            variants={containerVariants}
-            className="p-6 rounded-[16px] border border-[#EEE] grid gap-6 backdrop-blur-md"
-          >
-            {formData.map((field, index) => (
-              <motion.div
-                key={index}
-                variants={fieldVariants}
-                className="flex flex-col gap-4"
-              >
-                <label
-                  htmlFor={field.name}
-                  className="text-white text-lg font-medium"
-                >
-                  {field.label}
-                </label>
-
-                {field.type === "textarea" ? (
-                  <textarea
-                    id={field.name}
-                    {...register(field.name, { required: `${field.label} is required` })}
-                    placeholder={field.placeholder}
-                    className="w-full p-3 rounded-md bg-transparent border border-white text-white placeholder:text-white focus:outline-none focus:border-primaryColor"
-                    rows="5"
-                  ></textarea>
-                ) : (
-                  <input
-                    id={field.name}
-                    type={field.type}
-                    {...register(field.name, { required: `${field.label} is required` })}
-                    placeholder={field.placeholder}
-                    className="w-full p-3 rounded-md bg-transparent border border-white text-white placeholder:text-white focus:outline-none focus:border-primaryColor"
-                  />
-                )}
-
-                {errors[field.name] && (
-                  <p className="text-red-400 text-sm">
-                    {errors[field.name]?.message}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-
-            {/* Animated Button */}
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-4 py-3 px-6 bg-primaryColor text-white font-semibold rounded-lg hover:bg-primaryColor/80 transition-all"
+        {/* Form Animation Container */}
+        <motion.form
+          onSubmit={handleSubmit(onSubmit)}
+          variants={containerVariants}
+          className="p-6 sm:p-8 md:p-10 rounded-[16px] border border-[#EEE] grid gap-6 backdrop-blur-md
+                     w-full"
+        >
+          {formData.map((field, index) => (
+            <motion.div
+              key={index}
+              variants={fieldVariants}
+              className="flex flex-col gap-4"
             >
-              Send Message
-            </motion.button>
-          </motion.form>
-        </div>
-      </motion.div>
-    </CommonBanner>
+              <label
+                htmlFor={field.name}
+                className="text-white text-lg sm:text-base md:text-lg font-medium"
+              >
+                {field.label}
+              </label>
+
+              {field.type === "textarea" ? (
+                <textarea
+                  id={field.name}
+                  {...register(field.name, { required: `${field.label} is required` })}
+                  placeholder={field.placeholder}
+                  className="w-full p-3 rounded-md bg-transparent border border-white text-white placeholder:text-white focus:outline-none focus:border-primaryColor
+                             text-sm sm:text-base md:text-base"
+                  rows="5"
+                ></textarea>
+              ) : (
+                <input
+                  id={field.name}
+                  type={field.type}
+                  {...register(field.name, { required: `${field.label} is required` })}
+                  placeholder={field.placeholder}
+                  className="w-full p-3 rounded-md bg-transparent border border-white text-white placeholder:text-white focus:outline-none focus:border-primaryColor
+                             text-sm sm:text-base md:text-base"
+                />
+              )}
+
+              {errors[field.name] && (
+                <p className="text-red-400 text-sm">
+                  {errors[field.name]?.message}
+                </p>
+              )}
+            </motion.div>
+          ))}
+
+          {/* Animated Button */}
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-4 py-3 px-6 bg-primaryColor text-white font-semibold rounded-lg hover:bg-primaryColor/80 transition-all text-sm sm:text-base md:text-base"
+          >
+            Send Message
+          </motion.button>
+        </motion.form>
+      </div>
+    </motion.div>
+  </CommonBanner>
+</section>
+
   );
 };
 

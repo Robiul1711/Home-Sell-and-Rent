@@ -6,7 +6,7 @@ import { Title97 } from "../common/Title";
 import { motion } from "framer-motion";
 
 const KoanoDetails = () => {
-  // Variants for container and children animations
+  // Variants for animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,10 +35,17 @@ const KoanoDetails = () => {
 
   return (
     <CommonBanner bannerImage={BannerImage}>
-      <div className="flex w-full gap-20 section-padding-x pt-10">
+      <div
+        className="
+          flex flex-col-reverse lg:flex-row 
+          w-full gap-12 lg:gap-20 
+          section-padding-x pt-10
+        "
+        id="approach"
+      >
         {/* Left section - details */}
         <motion.div
-          className="w-[50%] flex flex-col gap-6"
+          className="w-full lg:w-1/2 flex flex-col gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -48,25 +55,26 @@ const KoanoDetails = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="pb-6 border-b-[1px] border-b-[#E1DCD6] flex flex-col gap-4"
+              className="pb-6 border-b border-[#E1DCD6] flex flex-col gap-4"
             >
-              <div className="flex items-center gap-4">
-                <p className="text-[24px] text-[#C6C4C2] font-medium">
+              <div className="flex items-center gap-4 flex-wrap">
+                <p className="text-[22px] md:text-[24px] text-[#C6C4C2] font-medium">
                   0{item.id}
                 </p>
-                <p className="text-[24px] text-[#262626] font-medium">
+                <p className="text-[22px] md:text-[24px] text-[#262626] font-medium">
                   {item.title}
                 </p>
               </div>
-
-              <p className="text-[#262626] font-normal">{item.text}</p>
+              <p className="text-[#262626] font-normal text-sm md:text-base leading-relaxed">
+                {item.text}
+              </p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Right section - title */}
         <motion.div
-          className="w-[50%] flex "
+          className="w-full lg:w-1/2 flex "
           variants={titleVariant}
           initial="hidden"
           whileInView="visible"

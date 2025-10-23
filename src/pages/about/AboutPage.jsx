@@ -11,7 +11,7 @@ const AboutPage = () => {
       <AboutBanner />
       <KoanoDetails />
       <OurClient />
-      <MapComponent/>
+      {/* <MapComponent/> */}
       <ContactForm/>
     </div>
   );

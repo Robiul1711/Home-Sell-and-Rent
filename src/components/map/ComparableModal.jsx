@@ -15,62 +15,19 @@ const ComparableModal = ({ setShowComparable }) => {
   });
 
   const salesData = [
-    {
-      address: '417 Blozelown Road, New York, NY 10018',
-      salePrice: '$480,000',
-      date: 'Aug 17, 2026',
-      sqFt: '1200',
-      pricePerSqFt: '$400'
-    },
-    {
-      address: '417 Blozelown Road, New York, NY 10018',
-      salePrice: '$480,000',
-      date: 'Aug 17, 2026',
-      sqFt: '1200',
-      pricePerSqFt: '$400'
-    },
-    {
-      address: '417 Blozelown Road, New York, NY 10018',
-      salePrice: '$480,000',
-      date: 'Aug 17, 2026',
-      sqFt: '1200',
-      pricePerSqFt: '$400'
-    }
+    { address: '417 Blozelown Road, New York, NY 10018', salePrice: '$480,000', date: 'Aug 17, 2026', sqFt: '1200', pricePerSqFt: '$400' },
+    { address: '417 Blozelown Road, New York, NY 10018', salePrice: '$480,000', date: 'Aug 17, 2026', sqFt: '1200', pricePerSqFt: '$400' },
+    { address: '417 Blozelown Road, New York, NY 10018', salePrice: '$480,000', date: 'Aug 17, 2026', sqFt: '1200', pricePerSqFt: '$400' }
   ];
 
   const rentalData = [
-    {
-      address: '417 Blozelown Road, New York, NY 10018',
-      type: 'Apartment',
-      monthlyRent: '$2,200',
-      lastLease: 'Aug 23, 2026',
-      estimatedPrice: '$480,000',
-      yield: '5.4%'
-    },
-    {
-      address: '417 Blozelown Road, New York, NY 10018',
-      type: 'Villa',
-      monthlyRent: '$2,200',
-      lastLease: 'Aug 23, 2026',
-      estimatedPrice: '$480,000',
-      yield: '5.4%'
-    },
-    {
-      address: '417 Blozelown Road, New York, NY 10018',
-      type: 'Apartment',
-      monthlyRent: '$2,200',
-      lastLease: 'Aug 23, 2026',
-      estimatedPrice: '$480,000',
-      yield: '5.6%'
-    }
+    { address: '417 Blozelown Road, New York, NY 10018', type: 'Apartment', monthlyRent: '$2,200', lastLease: 'Aug 23, 2026', estimatedPrice: '$480,000', yield: '5.4%' },
+    { address: '417 Blozelown Road, New York, NY 10018', type: 'Villa', monthlyRent: '$2,200', lastLease: 'Aug 23, 2026', estimatedPrice: '$480,000', yield: '5.4%' },
+    { address: '417 Blozelown Road, New York, NY 10018', type: 'Apartment', monthlyRent: '$2,200', lastLease: 'Aug 23, 2026', estimatedPrice: '$480,000', yield: '5.6%' }
   ];
 
   const handleExport = () => {
-    if (exportType === 'pdf') {
-      alert('Generating PDF Report...');
-    } else {
-      alert('Generating CSV Data...');
-    }
+    alert(exportType === 'pdf' ? 'Generating PDF Report...' : 'Generating CSV Data...');
     setShowExportModal(false);
   };
 
@@ -83,11 +40,11 @@ const ComparableModal = ({ setShowComparable }) => {
 
   return (
     <>
-      <div className="fixed top-24 right-6 flex items-center justify-center z-50 p-4">
-        <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-2xl bg-gray-800/95">
+      <div className="fixed inset-0 flex items-start md:items-center justify-center z-50 p-4 overflow-y-auto">
+        <div className="w-full max-w-3xl md:max-w-2xl rounded-lg shadow-2xl bg-gray-800/95">
           {/* Header */}
           <div className="p-5 pb-4">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3 sm:gap-0">
               <button className="flex items-center text-white text-sm hover:text-gray-200 transition">
                 <div className="flex items-center gap-1 border border-white rounded-full px-2 py-0.5">
                   <ArrowLeft className="w-3 h-3" />
@@ -96,7 +53,7 @@ const ComparableModal = ({ setShowComparable }) => {
               </button>
               <button
                 onClick={() => setShowComparable(false)}
-                className="text-white hover:text-gray-200"
+                className="text-white hover:text-gray-200 ml-auto sm:ml-0"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -105,8 +62,8 @@ const ComparableModal = ({ setShowComparable }) => {
             <h2 className="text-white text-lg font-semibold mb-4">Comparable</h2>
 
             {/* Filters Row */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3 sm:gap-0">
+              <div className="flex flex-wrap gap-2 items-center">
                 <span className="text-white text-sm">Radius:</span>
                 {['0.5mi', '1 mi', '2 mi'].map((radius) => (
                   <button
@@ -123,7 +80,7 @@ const ComparableModal = ({ setShowComparable }) => {
                 ))}
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mt-2 sm:mt-0">
                 <span className="text-white text-sm">Sort By:</span>
                 <select
                   value={sortBy}
@@ -165,19 +122,17 @@ const ComparableModal = ({ setShowComparable }) => {
             {/* Table */}
             <div className="overflow-x-auto mb-4">
               {activeTab === 'sales' ? (
-                <table className="w-full text-white text-sm">
+                <table className="w-full text-white text-sm min-w-[600px]">
                   <thead>
                     <tr className="border-b border-gray-400">
-                      <th className="text-left py-2 px-2 font-medium">Address</th>
-                      <th className="text-left py-2 px-2 font-medium">Sale Price</th>
-                      <th className="text-left py-2 px-2 font-medium">Date</th>
-                      <th className="text-left py-2 px-2 font-medium">Sq Ft</th>
-                      <th className="text-left py-2 px-2 font-medium">$/sqft</th>
+                      {['Address', 'Sale Price', 'Date', 'Sq Ft', '$/sqft'].map((th, i) => (
+                        <th key={i} className="text-left py-2 px-2 font-medium">{th}</th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
                     {salesData.map((item, index) => (
-                      <tr key={index} className="border-b border-gray-500 hover:bg-white hover:bg-opacity-10 transition">
+                      <tr key={index} className="border-b border-gray-500 hover:bg-white/10 hover:bg-opacity-10 transition">
                         <td className="py-3 px-2">{item.address}</td>
                         <td className="py-3 px-2">{item.salePrice}</td>
                         <td className="py-3 px-2">{item.date}</td>
@@ -188,20 +143,17 @@ const ComparableModal = ({ setShowComparable }) => {
                   </tbody>
                 </table>
               ) : (
-                <table className="w-full text-white text-sm">
+                <table className="w-full text-white text-sm min-w-[700px]">
                   <thead>
                     <tr className="border-b border-gray-400">
-                      <th className="text-left py-2 px-2 font-medium">Address</th>
-                      <th className="text-left py-2 px-2 font-medium">Type</th>
-                      <th className="text-left py-2 px-2 font-medium">Monthly Rent</th>
-                      <th className="text-left py-2 px-2 font-medium">Last Lease</th>
-                      <th className="text-left py-2 px-2 font-medium">Estimated Price</th>
-                      <th className="text-left py-2 px-2 font-medium">Yield %</th>
+                      {['Address', 'Type', 'Monthly Rent', 'Last Lease', 'Estimated Price', 'Yield %'].map((th, i) => (
+                        <th key={i} className="text-left py-2 px-2 font-medium">{th}</th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
                     {rentalData.map((item, index) => (
-                      <tr key={index} className="border-b border-gray-500 hover:bg-white hover:bg-opacity-10 transition">
+                      <tr key={index} className="border-b border-gray-500 hover:bg-white/10 hover:bg-opacity-10 transition">
                         <td className="py-3 px-2">{item.address}</td>
                         <td className="py-3 px-2">{item.type}</td>
                         <td className="py-3 px-2">{item.monthlyRent}</td>
@@ -216,16 +168,16 @@ const ComparableModal = ({ setShowComparable }) => {
             </div>
 
             {/* Action Buttons */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <button 
                 onClick={() => setShowExportModal(true)}
-                className="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded font-semibold transition"
+                className="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded font-semibold transition w-full"
               >
                 Export
               </button>
               <button 
                 onClick={() => setShowContactModal(true)}
-                className="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded font-semibold transition"
+                className="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded font-semibold transition w-full"
               >
                 Contact
               </button>
@@ -234,7 +186,7 @@ const ComparableModal = ({ setShowComparable }) => {
         </div>
       </div>
 
-      {/* Export Modal */}
+         {/* Export Modal */}
       {showExportModal && (
         <div className="fixed inset-0  flex items-center justify-center z-[60]">
           <div className="bg-white rounded-lg p-6 max-w-sm w-full mx-4 shadow-2xl">
