@@ -25,7 +25,7 @@ const WhoWeAre = ({ className, data }) => {
 
   return (
     <CommonBanner bannerImage={BannerImage}>
-      <div className="flex justify-end items-end w-full">
+      <div className="flex justify-end items-end w-full py-6">
         <div
           className={`${className} flex flex-col w-full gap-8 relative section-padding-x max-w-[1100px]`}
         >
@@ -53,13 +53,13 @@ const WhoWeAre = ({ className, data }) => {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className="bg-[rgba(219,211,195,0.20)] border border-primaryColor backdrop-blur-[6px] p-5 sm:p-6 rounded-[16px] flex flex-col justify-between items-start h-full gap-3 hover:scale-[1.02] transition-transform duration-300"
+                className="bg-[rgba(219,211,195,0.20)] border border-primaryColor backdrop-blur-[64px] p-5 sm:p-6 rounded-[16px] flex flex-col justify-between items-start h-full gap-3 hover:scale-[1.02] transition-transform duration-300"
               >
                 <span className="p-3 sm:p-4 rounded-lg bg-white">{item.icon}</span>
 
                 <div className="flex flex-col gap-3">
-                  <Title20 className="text-[18px] sm:text-[20px]">{item?.title}</Title20>
-                  <Title16 className="text-[14px] sm:text-[16px] leading-relaxed">
+                  <Title20 className="text-[18px] sm:text-[20px] ">{item?.title}</Title20>
+                  <Title16 className="text-[14px] sm:text-[16px] leading-relaxed ">
                     {item?.text}
                   </Title16>
                 </div>
