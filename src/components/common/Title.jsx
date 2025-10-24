@@ -30,7 +30,7 @@ export const Title97 = ({ className = "", children }) => {
   return (
     <h1
       className={`${className} font-bold text-[#6A594D]
-        text-[40px] sm:text-[60px] md:text-[80px] lg:text-[97px] leading-[1.1]`}
+        text-[40px] sm:text-[60px] md:text-[80px] xlg:text-[97px] leading-[1.1]`}
       style={{ textShadow: "-7px 3px 4px rgba(70, 65, 59, 0.3)" }}
     >
       {children}

@@ -45,12 +45,12 @@ const Navbar = () => {
       </Link>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-6">
+      <nav className="hidden md:flex items-center lg:gap-6 gap-3">
         {navLinks.map((link) => (
           <button
             key={link.id}
             onClick={() => handleNavClick(link)}
-            className={`text-lg font-semibold transition-all duration-300 px-5 py-2 rounded-lg ${
+            className={`lg:text-lg text-base font-semibold transition-all duration-300 lg:px-5 px-2.5 lg:py-2 py-1.5 rounded-lg ${
               location.pathname === link.path && !link.sectionId
                 ? "bg-primaryColor text-white"
                 : "text-white hover:bg-primaryColor hover:text-white"

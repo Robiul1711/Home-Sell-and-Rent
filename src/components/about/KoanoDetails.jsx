@@ -34,7 +34,7 @@ const KoanoDetails = () => {
   };
 
   return (
-    <CommonBanner bannerImage={BannerImage}>
+    <CommonBanner bannerImage={BannerImage} className={`!h-auto`} >
       <div
         className="
           flex flex-col-reverse lg:flex-row 
